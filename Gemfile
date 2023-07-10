@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+
 gem 'will_paginate', '~> 4.0'
 gem 'bcrypt', '~> 3.1', '>= 3.1.19'
 
