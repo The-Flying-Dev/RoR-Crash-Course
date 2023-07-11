@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :text_posts
   resources :posts
   resources :users
+  resources :sessions
 
   get 'signup', to: 'users#new', as: 'signup'
 
