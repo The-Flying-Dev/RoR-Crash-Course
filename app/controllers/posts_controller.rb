@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show 
     @post = Post.find(params[:id])
+    @can_moderate = (current_user == @post.user)
   end 
   
 end
