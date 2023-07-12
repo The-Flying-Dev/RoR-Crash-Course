@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception 
+  protect_from_forgery with: :null_session
 
   private 
+
+  def authenticate_token!
+    authenticate_or_request_with_http_token do |token, options|
+      @api_user = User.find_by(api_token: token)
+    end
+  end
 
   def current_user 
     if session[:user_id]
