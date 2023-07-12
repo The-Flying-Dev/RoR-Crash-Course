@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
   def new 
   end 
 
-  def create 
+  def create
+    debugger
     user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])

@@ -15,7 +15,9 @@
       
       <%= sanitize image_post.body %>
 
-      <p><%= pluralize image_post.cached_comment_count, "Comment" %></p>    
+      <p><%= pluralize image_post.cached_comment_count, "Comment" %></p>
+
+      <%= debug image_post %>  
     </div>
   </div>
 <% end %>
