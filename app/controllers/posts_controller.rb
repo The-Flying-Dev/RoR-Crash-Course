@@ -3,12 +3,13 @@ class PostsController < ApplicationController
 
   def index
     user_ids = current_user.timeline_user_ids  # list of user_ids returned by the current users' .timeline_user_ids method in User Model
-    @posts = Post.where(user_id: user_ids)     # user_id key points to an array of selected Posts instead of all the Posts
+    @posts = Post.includes(:user).where(user_id: user_ids)     # user_id key points to an array of selected Posts instead of all the Posts
+                .paginate(page: params[:page], per_page: 5)
                 .order("created_at DESC")
   end 
 
   def show 
-    @post = Post.find(params[:id])
+    @post = Post.includes(comments: [:user]).find(params[:id])
     @can_moderate = (current_user == @post.user)
   end 
   
