@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
   root 'posts#index'
+
+  namespace :api do 
+    resources :posts 
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
